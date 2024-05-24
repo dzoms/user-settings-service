@@ -20,4 +20,8 @@ public class UserSettingsFindUseCase {
     public UserSettingsEntity findById(UUID id) {
         return repository.findUserSettingsEntityById(id).orElse(null);
     }
+
+    public List<UserSettingsEntity> gelAll() {
+        return repository.findAll();
+    }
 }

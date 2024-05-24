@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import transfer.contract.domain.usersettings.UserSettingsOperationResultTo;
 import transfer.contract.domain.usersettings.UserSettingsTo;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -38,5 +39,10 @@ public class UserSettingsController {
     public ResponseEntity<UserSettingsEntity> getUserSettings(final @Valid @PathVariable UUID id) {
         UserSettingsEntity userSettings = findUseCase.findById(id);
         return ResponseEntity.ok(userSettings);
+    }
+
+    @GetMapping(produces = "application/json")
+    public List<UserSettingsEntity> getUsers() {
+        return findUseCase.gelAll();
     }
 }
